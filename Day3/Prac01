@@ -1,0 +1,82 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Prac01 extends JFrame {
+	
+	private MyPanel panel = new MyPanel();
+	
+	public Prac01() {
+		setTitle("이미지 그리기 연습");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // 프레임을 닫으면 프로그램이 종료
+		setContentPane(panel); // 프레임을 패널로 설정
+		setSize(500, 500); // 프레임 크기를 500x500
+		setVisible(true); // 프레임이 보이게 함
+	}
+	
+	// 프레임 위에 부착한 패널을 설정
+	class MyPanel extends JPanel {
+		private ImageIcon icon = new ImageIcon("background.jpg"); // 이미지 파일을 로드해서 ImageIcon 객체를 생성
+		private Image img = icon.getImage(); // icon에서 추출한 이미지를 저장
+		
+		private JButton button = new JButton("HIDE/SHOW"); // 버튼 생성
+		private int x = -20;
+		private int y = -20;
+		
+		public MyPanel() {
+			setLayout(new FlowLayout()); // 패널의 레이아웃을 설정
+			add(button); // 패널에 버튼 추가
+			
+			// 패널에 있는 버튼을 클릭하면 이벤트 발생
+			// 사진이 없으면 사진이 출력되게 하고 있으면 지우게 함
+			button.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {	
+					if (img == null) {
+						img = icon.getImage();
+					}
+					else { img = null; }
+					
+					// repaint는 패널에 변화가 생겼을 시에 패널을 다시 그려 변경된 내용을 화면에 저장
+					repaint();
+				}
+			});
+			
+			// 패널 위에 점을 클릭하면 그 위치를 알아내서 드래그하는 위치를 계속 알아내며 원을 다시 그리고 다시 그림 -> repaint()
+			addMouseListener(new MouseAdapter() {
+				public void mousePressed(MouseEvent e) {
+					x = e.getX();
+					y = e.getY();
+					
+					repaint();
+				}
+			});
+			
+			addMouseMotionListener(new MouseAdapter() {
+				public void mouseDragged(MouseEvent e) {
+					x = e.getX();
+					y = e.getY();
+					
+					repaint();
+				}
+			});	
+		}
+		
+		// 패널에 이미지 그릴 때 호출됨
+		public void paintComponent(Graphics g) { 
+			super.paintComponent(g);
+			
+			// 이미지가 비어있으면 이미지 그리기
+			if (img != null) {
+				g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
+			}
+			
+			g.setColor(Color.GREEN);
+			g.fillOval(x-20, y-20, 40, 40);
+		}	
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new Prac01();
+	}
+}
