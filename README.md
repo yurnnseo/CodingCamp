@@ -8,7 +8,7 @@
   
 ## 2️⃣ Day2
 * J09.java (커피 자판기를 작성하라. Black Coffee, Sugar Coffee, Dabang Coffee로 된 버튼을 누르면 통이 가득 채워진 컵, 커피, 물, 설탕, 크림 중 재료가 떨어진다. 그리고 Reset 버튼을 누르면 다시 가득 채워지는 코드를 작성하라.)
-![Image](https://github.com/user-attachments/assets/42daff6e-8214-4600-838b-4819ae02f61b){: width="100" height="100"}
+<img src = "https://github.com/user-attachments/assets/42daff6e-8214-4600-838b-4819ae02f61b" width="100" height="100"/ >
 
 ## 3️⃣ Day3
 * P674_CheckTime.java (Graphics 객체 g를 이용하여 3원색을 그려라. 각 색을 차지하는 면적은 동일하다.)
