@@ -7,9 +7,13 @@
 * J03.java
 ## 2️⃣ Day2
 * J09.java
+## 3️⃣ Day3
 * P674_CheckTime.java
 * Chap12_7.java
 * Chap12_10.java
-## 3️⃣ Day3
+* Prac01.java
 ## 4️⃣ Day4
+* Prac02.java
+* Prac03.java
+* Prac04.java
 
